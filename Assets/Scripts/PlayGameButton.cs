@@ -10,6 +10,7 @@ public class PlayGameButton : MonoBehaviour
     public TMP_InputField nickNameInputField;
     public TMP_Dropdown ageDropDown;
     public TextMeshProUGUI fillPleaseTextUI;
+    public Animator sceneTransitioner;
         
     public void TryPlayGame()
     {
@@ -19,12 +20,14 @@ public class PlayGameButton : MonoBehaviour
         }
         else
         {
-            StartGame();
+            StartCoroutine(StartGame());
         }
     }
 
-    private void StartGame()
+    private IEnumerator StartGame()
     {
+        sceneTransitioner.Play("TransitionOut");
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(1);
     }
 
