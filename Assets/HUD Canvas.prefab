@@ -463,7 +463,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Option A
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 33ec6e7ef1814b64d8920d42ba60bba5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42aacf269bdd02242a87a89ae3c3db66, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1013,7 +1013,7 @@ RectTransform:
   m_GameObject: {fileID: 3759578476846644268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3759578477803528979}
@@ -1054,15 +1054,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 33ec6e7ef1814b64d8920d42ba60bba5, type: 2}
-  m_sharedMaterial: {fileID: 32315562953118760, guid: 33ec6e7ef1814b64d8920d42ba60bba5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42aacf269bdd02242a87a89ae3c3db66, type: 2}
+  m_sharedMaterial: {fileID: -894275221465347023, guid: 42aacf269bdd02242a87a89ae3c3db66, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190335
-  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+    rgba: 4283894247
+  m_fontColor: {r: 0.90588236, g: 0.03529412, b: 0.34117648, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1079,8 +1079,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1089,7 +1089,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -11
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1807,15 +1807,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 8 and under
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 33ec6e7ef1814b64d8920d42ba60bba5, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42aacf269bdd02242a87a89ae3c3db66, type: 2}
+  m_sharedMaterial: {fileID: 32315562953118760, guid: 33ec6e7ef1814b64d8920d42ba60bba5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283704802
-  m_fontColor: {r: 0.8862746, g: 0.14509805, b: 0.32941177, a: 1}
+    rgba: 4283894247
+  m_fontColor: {r: 0.90588236, g: 0.03529412, b: 0.34117648, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1838,7 +1838,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 9
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2542,7 +2542,7 @@ RectTransform:
   m_GameObject: {fileID: 3759578478136307466}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3561026, y: 1.3561026, z: 1.3561026}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3759578477803528979}
@@ -2551,8 +2551,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 191}
-  m_SizeDelta: {x: 428.1, y: 53.3}
+  m_AnchoredPosition: {x: 3.3662, y: 187.3335}
+  m_SizeDelta: {x: 525.2473, y: 57.6054}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3759578478136307470
 CanvasRenderer:
@@ -2695,7 +2695,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: 33ec6e7ef1814b64d8920d42ba60bba5, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: 42aacf269bdd02242a87a89ae3c3db66, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_RestoreOriginalTextOnEscape: 1
