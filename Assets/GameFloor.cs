@@ -30,8 +30,6 @@ public class GameFloor : MonoBehaviour
         if (CalculateDistanceExceptY(truckTransform.position, nextRotatingPoint.position) < 0.01f)
         {
             Debug.Log("Turning point reached");
-            // clamp position
-            truckTransform.position = new Vector3(nextRotatingPoint.position.x, truckTransform.position.y, nextRotatingPoint.position.z);
 
             // change direction
             isMovingRight = !isMovingRight;
