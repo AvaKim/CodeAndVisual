@@ -17,7 +17,7 @@ public class RoadGenerator : MonoBehaviour
     public GameObject roadPrefab;
     private Vector3[] houseSpawns = new Vector3[4]; // every road has 2 house spawn points on each side. 0, 1 = left / 2, 3 = right
 
-    private int maxWaypoints = 30;
+    private int maxWaypoints = 90;
 
     private int spawnedWaypoints = 0;
     private Vector3 lastSpawnedWaypointPos;
@@ -86,12 +86,6 @@ public class RoadGenerator : MonoBehaviour
     void SpawnHousePrefab(GameObject road)
     {
         float ranNum = Random.Range(0, 1);
-
-        // 25% chance of skipping TODO: erase magic no
-        if (ranNum > 0.75f)
-        {
-            return;
-        }
         
         // if road is facing right, instantiate houses on index 0, 1 which is left side of the road
         if (movingRight)
