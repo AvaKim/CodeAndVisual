@@ -638,7 +638,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.35355338, y: -0.35355338, z: 0.1464466, w: 0.8535535}
-  m_LocalPosition: {x: 0, y: 0.89, z: -0.38}
+  m_LocalPosition: {x: 0.41, y: 0.95, z: 0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -731,8 +731,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1030197241}
   - component: {fileID: 1030197240}
+  - component: {fileID: 1030197242}
   m_Layer: 0
-  m_Name: RoadGenerator
+  m_Name: GameFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -751,7 +752,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roadPrefab: {fileID: 7142012201687451475, guid: 207dfb1aa9f7cf246a4308f458913299, type: 3}
-  truckTransform: {fileID: 1192548126}
   maxWaypoints: 10
 --- !u!4 &1030197241
 Transform:
@@ -768,6 +768,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1030197242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030197239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d4d865e02a645a449a9171824677984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  truckTransform: {fileID: 1192548126}
+  isMovingRight: 1
 --- !u!1 &1097061631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,7 +1179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2469752949687302221, guid: 6a508814d1874924081e0070b33e9d56, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2469752949687302221, guid: 6a508814d1874924081e0070b33e9d56, type: 3}
       propertyPath: m_LocalPosition.z
