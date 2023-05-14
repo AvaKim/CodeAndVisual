@@ -66,22 +66,38 @@ public class RoadGenerator : MonoBehaviour
         waypointsQueue.Enqueue(waypoint);
         lastSpawnedWaypointPos = waypoint.position;
 
-        for (int i = 0; i < 4; i++)
-        {
-            Debug.Log($"Instantiating a house {i} {road.transform.GetChild(i).name} for road {spawnedWaypoints}");
-            houseSpawns[i] = road.transform.GetChild(i).position;
-        }
-
-        foreach (var spawnPoint in houseSpawns)
-        {
-            Instantiate(housePrefab, spawnPoint, Quaternion.identity, this.transform);
-        }
+        // spawn houses
+        SpawnHousePrefab(road);
+        
         
         // repeat
         spawnedWaypoints++;
         if (spawnedWaypoints < maxWaypoints)
         {
             GenerateWaypoint(movingRight, waypoint);
+        }
+    }
+
+    void SpawnHousePrefab(GameObject road)
+    {
+        // if road is facing right, instantiate houses on index 0, 1 which is left side of the road
+        if (movingRight)
+        {
+            InstantiateHousePrefab(0);
+            InstantiateHousePrefab(1);
+        }
+        else
+        {
+            // if road is facing left, instantiate houses on index 0, 1 which is left side of the road
+            InstantiateHousePrefab(2);
+            InstantiateHousePrefab(3);
+        }
+        
+        void InstantiateHousePrefab(int index)
+        {
+            Debug.Log($"Instantiating a house {road.transform.GetChild(index).name} for road {spawnedWaypoints}");
+            houseSpawns[index] = road.transform.GetChild(index).position;
+            Instantiate(housePrefab, houseSpawns[index], Quaternion.identity, this.transform);
         }
     }
 }
