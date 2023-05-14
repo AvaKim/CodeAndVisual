@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3689259060053888502}
   - component: {fileID: 3647306611954827143}
   - component: {fileID: 5399179700020527457}
+  - component: {fileID: 1367492280754060242}
   m_Layer: 5
   m_Name: BinItemsWorldCanvas (To be removed)
   m_TagString: Untagged
@@ -101,6 +102,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1367492280754060242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316851609531791092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8732e4a71dcd174dbcf1411a4e71fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  binItemTexts:
+  - {fileID: 4453379384678674036}
+  - {fileID: 5989166700697316713}
+  - {fileID: 3210825959253456780}
 --- !u!1 &1322750740257955652
 GameObject:
   m_ObjectHideFlags: 0
