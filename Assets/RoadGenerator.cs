@@ -7,13 +7,14 @@ using Random = UnityEngine.Random;
 public class RoadGenerator : MonoBehaviour
 {
     private GameFloor _gameFloor;
+    private const int houseGenInterval = 2;
 
     public GameObject housePrefab;
 
     public GameObject roadPrefab;
     private Vector3[] houseSpawns = new Vector3[4]; // every road has 2 house spawn points on each side. 0, 1 = left / 2, 3 = right
 
-    public int maxWaypoints = 10;
+    private int maxWaypoints = 30;
 
     private int spawnedWaypoints = 0;
     private Vector3 lastSpawnedWaypointPos;
@@ -66,8 +67,8 @@ public class RoadGenerator : MonoBehaviour
         waypointsQueue.Enqueue(waypoint);
         lastSpawnedWaypointPos = waypoint.position;
 
-        // spawn houses
-        SpawnHousePrefab(road);
+        // spawn houses at waypoints interval
+        if(spawnedWaypoints % houseGenInterval == 0) SpawnHousePrefab(road);
         
         
         // repeat
@@ -80,17 +81,23 @@ public class RoadGenerator : MonoBehaviour
 
     void SpawnHousePrefab(GameObject road)
     {
+        bool coinFlip = Random.Range(0, 1) > 0.5f;
+        
         // if road is facing right, instantiate houses on index 0, 1 which is left side of the road
         if (movingRight)
         {
-            InstantiateHousePrefab(0);
-            InstantiateHousePrefab(1);
+            if(coinFlip) 
+                InstantiateHousePrefab(0);
+            else 
+                InstantiateHousePrefab(1);
         }
         else
+        // if road is facing left, instantiate houses on index 0, 1 which is left side of the road
         {
-            // if road is facing left, instantiate houses on index 0, 1 which is left side of the road
-            InstantiateHousePrefab(2);
-            InstantiateHousePrefab(3);
+            if(coinFlip)
+                InstantiateHousePrefab(2);
+            else
+                InstantiateHousePrefab(3);
         }
         
         void InstantiateHousePrefab(int index)
