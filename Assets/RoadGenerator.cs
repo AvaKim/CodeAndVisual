@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using Random = UnityEngine.Random;
-
+using UnityEngine.UI;
 
 public class RoadGenerator : MonoBehaviour
 {
@@ -112,7 +112,11 @@ public class RoadGenerator : MonoBehaviour
         {
             Debug.Log($"Instantiating a house {road.transform.GetChild(index).name} for road {spawnedWaypoints}");
             houseSpawns[index] = road.transform.GetChild(index).position;
-            Instantiate(housePrefab, houseSpawns[index], Quaternion.identity, this.transform);
+            var newHouse = Instantiate(housePrefab, houseSpawns[index], Quaternion.identity, this.transform);
+
+            var binItemTransform = newHouse.GetComponentInChildren<RectTransform>().transform;
+            binItemTransform.SetParent(worldCanvas.transform);
         }
+        
     }
 }

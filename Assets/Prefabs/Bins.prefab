@@ -363,7 +363,7 @@ Transform:
   - {fileID: 7625248816940371703}
   - {fileID: 5376027632244323801}
   - {fileID: 5547765099384269878}
-  m_Father: {fileID: 4205181835965710797}
+  m_Father: {fileID: 8368537685280821935}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4909274654541919063
@@ -563,7 +563,7 @@ Transform:
   - {fileID: 9163008625405711967}
   - {fileID: 8799478289789122699}
   - {fileID: 6813547795536410519}
-  m_Father: {fileID: 4205181835965710797}
+  m_Father: {fileID: 8368537685280821935}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7026722313933230460
@@ -657,7 +657,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4205181835965710797}
+  - component: {fileID: 8368537685280821935}
   m_Layer: 0
   m_Name: Bins
   m_TagString: Untagged
@@ -665,7 +665,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4205181835965710797
+--- !u!4 &8368537685280821935
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -714,7 +714,7 @@ Transform:
   - {fileID: 8488268120208403690}
   - {fileID: 6625914542218610094}
   - {fileID: 4658863621038615986}
-  m_Father: {fileID: 4205181835965710797}
+  m_Father: {fileID: 8368537685280821935}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8500968436796825322

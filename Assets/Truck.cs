@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class Truck : MonoBehaviour
 {
+    public int numHousePassed = 0;
     private GameFloor _gameFloor;
 
+
+    [SerializeField] private GameObject binItemsWorldCanvasPrefab;
     [SerializeField] private float moveSpeedSlowRate = 0.5f;
 
     void Start()
@@ -26,6 +29,7 @@ public class Truck : MonoBehaviour
         if (col.gameObject.tag == "House")
         {
             _gameFloor.moveSpeed /= moveSpeedSlowRate;
+            numHousePassed++;
         }
         
     }
