@@ -752,7 +752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roadPrefab: {fileID: 7142012201687451475, guid: 207dfb1aa9f7cf246a4308f458913299, type: 3}
-  maxWaypoints: 10
+  maxWaypoints: 30
 --- !u!4 &1030197241
 Transform:
   m_ObjectHideFlags: 0
