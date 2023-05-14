@@ -9,6 +9,7 @@ public class RoadGenerator : MonoBehaviour
     private GameFloor _gameFloor;
     private const int houseGenInterval = 3;
 
+    private Camera mainCam;
     public GameObject housePrefab;
     [SerializeField] private GameObject binItemsPrefab; // to be spawned for each house
     [SerializeField] private Canvas worldCanvas; // to spawn binItemUI
@@ -32,6 +33,7 @@ public class RoadGenerator : MonoBehaviour
         _gameFloor = GetComponent<GameFloor>();
         lastSpawnedWaypointPos = transform.position;
 
+        mainCam = Camera.main;
         var initialWaypoint = new GameObject("StartPoint").transform;
         GenerateWaypoint(true, initialWaypoint);
     }
@@ -110,12 +112,11 @@ public class RoadGenerator : MonoBehaviour
         
         void InstantiateHousePrefab(int index)
         {
+            var yRotation = movingRight ? 90 : 180;
             Debug.Log($"Instantiating a house {road.transform.GetChild(index).name} for road {spawnedWaypoints}");
             houseSpawns[index] = road.transform.GetChild(index).position;
-            var newHouse = Instantiate(housePrefab, houseSpawns[index], Quaternion.identity, this.transform);
-
-            var binItemTransform = newHouse.GetComponentInChildren<RectTransform>().transform;
-            binItemTransform.SetParent(worldCanvas.transform);
+            var newHouse = Instantiate(housePrefab, houseSpawns[index], Quaternion.Euler(0f, yRotation, 0f), this.transform);
+            newHouse.GetComponentInChildren<Canvas>().transform.rotation = Quaternion.LookRotation(Vector3.forward);
         }
         
     }

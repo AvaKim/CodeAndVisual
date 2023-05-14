@@ -27,7 +27,7 @@ public class GameFloor : MonoBehaviour
             return;
         }
         
-        if (CalculateDistanceExceptY(truckTransform.position, nextRotatingPoint.position) < 0.05f)
+        if (CalculateDistanceExceptY(truckTransform.position, nextRotatingPoint.position) < 0.08f)
         {
             Debug.Log("Turning point reached");
 

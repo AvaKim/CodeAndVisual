@@ -7,9 +7,6 @@ public class Truck : MonoBehaviour
 {
     public int numHousePassed = 0;
     private GameFloor _gameFloor;
-
-
-    [SerializeField] private GameObject binItemsWorldCanvasPrefab;
     [SerializeField] private float moveSpeedSlowRate = 0.5f;
 
     void Start()

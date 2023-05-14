@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartGame()
     {
+        Debug.Log("Starting the game!");
         Time.timeScale = gameDifficulty switch
         {
             0 => 0.5f,
@@ -53,16 +54,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (GlobalGameManager.Instance == null)
-        {
-            Debug.LogWarning("GlobalGameManager doesnt exist in the scene!");
-        }
-        else
-        {
-            playerName = GlobalGameManager.Instance.playerNickname;
-            gameDifficulty = GlobalGameManager.Instance.gameDifficulty;
-            Time.timeScale = 0; // Pause game until player starts
-        }
+        playerName = GlobalGameManager.Instance == null ? "undefined" : GlobalGameManager.Instance.playerNickname;
+        gameDifficulty = GlobalGameManager.Instance == null ? 1 : GlobalGameManager.Instance.gameDifficulty;
+        Time.timeScale = 0; // Pause game until player starts
     }
 
     void OnDestroy()
