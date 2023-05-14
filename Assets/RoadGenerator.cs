@@ -17,7 +17,7 @@ public class RoadGenerator : MonoBehaviour
     public GameObject roadPrefab;
     private Vector3[] houseSpawns = new Vector3[4]; // every road has 2 house spawn points on each side. 0, 1 = left / 2, 3 = right
 
-    private int maxWaypoints = 90;
+    private int maxWaypoints = 32;
 
     private int spawnedWaypoints = 0;
     private Vector3 lastSpawnedWaypointPos;
