@@ -751,8 +751,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae0b833421315843a09da07cb9b80a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  housePrefab: {fileID: 2058783801850969757, guid: 205b5bebc7105fd4aa66e94d1964b2e7, type: 3}
   roadPrefab: {fileID: 7142012201687451475, guid: 207dfb1aa9f7cf246a4308f458913299, type: 3}
-  maxWaypoints: 30
 --- !u!4 &1030197241
 Transform:
   m_ObjectHideFlags: 0
