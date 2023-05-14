@@ -7,8 +7,11 @@ using Random = UnityEngine.Random;
 public class RoadGenerator : MonoBehaviour
 {
     private GameFloor _gameFloor;
-    
+
+    public GameObject housePrefab;
+
     public GameObject roadPrefab;
+    private Vector3[] houseSpawns = new Vector3[4]; // every road has 2 house spawn points on each side. 0, 1 = left / 2, 3 = right
 
     public int maxWaypoints = 10;
 
@@ -62,6 +65,17 @@ public class RoadGenerator : MonoBehaviour
         // update variables
         waypointsQueue.Enqueue(waypoint);
         lastSpawnedWaypointPos = waypoint.position;
+
+        for (int i = 0; i < 4; i++)
+        {
+            Debug.Log($"Instantiating a house {i} {road.transform.GetChild(i).name} for road {spawnedWaypoints}");
+            houseSpawns[i] = road.transform.GetChild(i).position;
+        }
+
+        foreach (var spawnPoint in houseSpawns)
+        {
+            Instantiate(housePrefab, spawnPoint, Quaternion.identity, this.transform);
+        }
         
         // repeat
         spawnedWaypoints++;
