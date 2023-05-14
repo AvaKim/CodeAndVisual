@@ -1226,6 +1226,7 @@ MonoBehaviour:
   gameDifficulty: 1
   contamination: 0
   playerName: undefined
+  contaminationUISlider: {fileID: 1142295121}
   preGamePauseLayer: {fileID: 1679233514}
   scoreTextUGUI: {fileID: 1391393671}
   startGameButton: {fileID: 47495599}
