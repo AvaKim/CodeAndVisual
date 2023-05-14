@@ -1305,10 +1305,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Truck
       objectReference: {fileID: 0}
-    - target: {fileID: 6951683696019412763, guid: 6a508814d1874924081e0070b33e9d56, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a508814d1874924081e0070b33e9d56, type: 3}
 --- !u!1 &1391393669

@@ -17,6 +17,7 @@ public class Truck : MonoBehaviour
     {
         if (col.gameObject.tag == "House")
         {
+            Debug.Log("House entered: " + numHousePassed);
             _gameFloor.moveSpeed *= moveSpeedSlowRate;
         }
     }

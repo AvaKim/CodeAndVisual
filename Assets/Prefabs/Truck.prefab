@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4872452069960020665}
   - component: {fileID: 3026544592164450584}
   - component: {fileID: 4617137948790844545}
-  - component: {fileID: 6709424507327106816}
   m_Layer: 0
   m_Name: Truck Model
   m_TagString: Untagged
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6709424507327106816
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6592666969161415574}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6951683696019412763
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,9 +94,10 @@ GameObject:
   - component: {fileID: 2469752949687302221}
   - component: {fileID: 4756491711853120132}
   - component: {fileID: 5880066929176315207}
+  - component: {fileID: 4317668755774565068}
   m_Layer: 0
   m_Name: Truck
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,4 +143,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a6e28ccee530924dbd41ad9456896cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numHousePassed: 0
   moveSpeedSlowRate: 0.5
+--- !u!54 &4317668755774565068
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6951683696019412763}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
