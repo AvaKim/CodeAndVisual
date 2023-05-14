@@ -27,18 +27,25 @@ public class GameFloor : MonoBehaviour
             return;
         }
         
-        if (Vector3.Distance(truckTransform.position, nextRotatingPoint.position) < 0.12f)
+        if (CalculateDistanceExceptY(truckTransform.position, nextRotatingPoint.position) < 0.01f)
         {
             Debug.Log("Turning point reached");
             // clamp position
-            truckTransform.position = nextRotatingPoint.position;
+            truckTransform.position = new Vector3(nextRotatingPoint.position.x, truckTransform.position.y, nextRotatingPoint.position.z);
 
             // change direction
             isMovingRight = !isMovingRight;
-            truckTransform.LookAt(isMovingRight ? Vector3.forward : Vector3.left);
+            truckTransform.rotation = Quaternion.Euler(isMovingRight ? new Vector3(0, 0, 0) : new Vector3(0, -90f, 0f));
             
             _rotatingPoints.Dequeue();
         }
+    }
+    
+    private float CalculateDistanceExceptY (Vector3 v1, Vector3 v2)
+    {
+        float xDiff = v1.x - v2.x;
+        float zDiff = v1.z - v2.z;
+        return Mathf.Sqrt((xDiff * xDiff) + (zDiff * zDiff));
     }
 
     private void FixedUpdate()
@@ -50,8 +57,7 @@ public class GameFloor : MonoBehaviour
     public void SetTruckDirection(bool movingRight)
     {
         isMovingRight = movingRight;
-        truckTransform.LookAt(isMovingRight ? Vector3.forward : Vector3.left);
+        truckTransform.rotation = Quaternion.Euler(isMovingRight ? new Vector3(0, 0, 0) : new Vector3(0, -90f, 0f));
         
-        Debug.Log($"Initial direction set to right: {movingRight}");
     }
 }

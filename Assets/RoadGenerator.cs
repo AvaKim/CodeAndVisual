@@ -44,15 +44,6 @@ public class RoadGenerator : MonoBehaviour
         Transform waypoint = waypointGO.transform;
         waypoint.SetParent(this.transform);
         waypoint.position = movingRight ? new Vector3(lastSpawnedWaypointPos.x, lastSpawnedWaypointPos.y, lastSpawnedWaypointPos.z + 1) : new Vector3(lastSpawnedWaypointPos.x - 1, lastSpawnedWaypointPos.y, lastSpawnedWaypointPos.z);
-        if (!initialDirectionSet)
-        {
-            _gameFloor.SetTruckDirection(movingRight);
-            initialDirectionSet = true;
-        }
-
-        // update variables
-        waypointsQueue.Enqueue(waypoint);
-        lastSpawnedWaypointPos = waypoint.position;
 
         if (initialDirectionSet)
         {
@@ -62,8 +53,16 @@ public class RoadGenerator : MonoBehaviour
             {
                 rotatingPoints.Enqueue(previousWaypoint);
             }
+        } else // start changing direction only after reaching the first turning point
+        {
+            _gameFloor.SetTruckDirection(movingRight);
+            initialDirectionSet = true;
         }
 
+        // update variables
+        waypointsQueue.Enqueue(waypoint);
+        lastSpawnedWaypointPos = waypoint.position;
+        
         // repeat
         spawnedWaypoints++;
         if (spawnedWaypoints < maxWaypoints)
