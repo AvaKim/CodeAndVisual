@@ -7,10 +7,12 @@ using Random = UnityEngine.Random;
 public class RoadGenerator : MonoBehaviour
 {
     private GameFloor _gameFloor;
-    private const int houseGenInterval = 2;
+    private const int houseGenInterval = 3;
 
     public GameObject housePrefab;
-
+    [SerializeField] private GameObject binItemsPrefab; // to be spawned for each house
+    [SerializeField] private Canvas worldCanvas; // to spawn binItemUI
+    
     public GameObject roadPrefab;
     private Vector3[] houseSpawns = new Vector3[4]; // every road has 2 house spawn points on each side. 0, 1 = left / 2, 3 = right
 
@@ -81,12 +83,18 @@ public class RoadGenerator : MonoBehaviour
 
     void SpawnHousePrefab(GameObject road)
     {
-        bool coinFlip = Random.Range(0, 1) > 0.5f;
+        float ranNum = Random.Range(0, 1);
+
+        // 25% chance of skipping TODO: erase magic no
+        if (ranNum > 0.75f)
+        {
+            return;
+        }
         
         // if road is facing right, instantiate houses on index 0, 1 which is left side of the road
         if (movingRight)
         {
-            if(coinFlip) 
+            if(ranNum > 0.5f) 
                 InstantiateHousePrefab(0);
             else 
                 InstantiateHousePrefab(1);
@@ -94,7 +102,7 @@ public class RoadGenerator : MonoBehaviour
         else
         // if road is facing left, instantiate houses on index 0, 1 which is left side of the road
         {
-            if(coinFlip)
+            if(ranNum > 0.5f)
                 InstantiateHousePrefab(2);
             else
                 InstantiateHousePrefab(3);
