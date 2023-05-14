@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNickname: undefined
-  gameDifficulty: 0
+  gameDifficulty: 1
   playerScore: 0
 --- !u!4 &919077830
 Transform:

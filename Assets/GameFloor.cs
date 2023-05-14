@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameFloor : MonoBehaviour
 {
-    public const float moveSpeed = 0.5f;
+    const float moveSpeed = 0.75f;
     public Transform truckTransform;
     
     private RoadGenerator _roadGenerator;
@@ -49,7 +49,8 @@ public class GameFloor : MonoBehaviour
     private void FixedUpdate()
     {
         // move the map right if truck is moving left on X, move the map down on Z if truck is moving right/upward.
-        transform.Translate(isMovingRight ? Vector3.back  * (moveSpeed * Time.deltaTime) : Vector3.right * (moveSpeed * Time.deltaTime));
+        var target = isMovingRight ? transform.position + Vector3.back : transform.position + Vector3.right;
+        transform.position = Vector3.MoveTowards(transform.position, target, (moveSpeed * Time.deltaTime));
     }
 
     public void SetTruckDirection(bool movingRight)

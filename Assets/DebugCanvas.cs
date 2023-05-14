@@ -4,15 +4,19 @@ using TMPro;
 public class DebugCanvas : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI fpsText;
-    private float fps;
+    private float fps = 60f;
 
-    private void Update()
+    void Start()
+    {
+        InvokeRepeating("GetFPS", 1, 1);
+    }
+    private void GetFPS()
     {
         // Calculate FPS
-        fps = 1f / Time.deltaTime;
-    
-        // Set FPS text
-        fpsText.text = "FPS: " + Mathf.RoundToInt(fps).ToString();
+        fps = (int)1.0f / Time.unscaledDeltaTime;
+        
+        fpsText.text = "FPS: " + fps;
+        
     }
     
 }

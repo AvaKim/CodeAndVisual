@@ -5,7 +5,7 @@ using UnityEngine;
 public class GlobalGameManager : MonoBehaviour
 {
     public string playerNickname = "undefined";
-    public int gameDifficulty = 0; // 0 = slow, 1 = medium, 2 = fast
+    public int gameDifficulty = 1; // 0 = slow, 1 = medium, 2 = fast
     public int playerScore = 0;
 
     public static GlobalGameManager Instance;
