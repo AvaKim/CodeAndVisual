@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameFloor : MonoBehaviour
 {
-    public float moveSpeed = 0.75f;
+    [HideInInspector] public float moveSpeed = 1f;
     public Transform truckTransform;
     
     private RoadGenerator _roadGenerator;

@@ -31,21 +31,25 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Moving to scene " + sceneIndex + "...");
         preGamePauseLayer.enabled = true;
-        screenFadeOut.Play("TransitionOut");
-        float delayAmount = 1.5f;
+        float preFadeoutDelayAmount = 0f;
         switch (gameDifficulty)
         {
             case 0:
-                delayAmount = 1.5f;
+                preFadeoutDelayAmount = 0f;
                 break;
             case 1:
-                delayAmount = 2.5f;
+                preFadeoutDelayAmount = 0.5f;
                 break;
             case 2:
-                delayAmount = 4f;
+                preFadeoutDelayAmount = 1f;
                 break;
         }
-        yield return new WaitForSeconds(delayAmount);
+
+        yield return new WaitForSeconds(preFadeoutDelayAmount);
+        screenFadeOut.Play("TransitionOut");
+        yield return new WaitForSeconds(1.5F); // fadeout animation length
+        GlobalGameManager.Instance.playerScore = score;
+        GlobalGameManager.Instance.contamination = contamination;
         SceneManager.LoadScene(sceneIndex);
     }
 
@@ -88,9 +92,8 @@ public class GameManager : MonoBehaviour
         score = GlobalGameManager.Instance == null ? 0 : GlobalGameManager.Instance.playerScore;
 
         UpdatePlayerHUD();
+        PauseGame(); // Pause game until player starts.
 
-        Invoke(nameof(PauseGame), 0.3f); // Pause game until player starts. Give delay to set up game
-        
     }
 
     public void PauseGame()
@@ -132,9 +135,6 @@ public class GameManager : MonoBehaviour
 
     public void ReloadScene()
     {
-        GlobalGameManager.Instance.playerScore = score;
-        GlobalGameManager.Instance.contamination = contamination;
-        
         StartCoroutine(LoadScene(1));
     }
 
