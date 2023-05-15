@@ -118,6 +118,12 @@ public class GameManager : MonoBehaviour
     public void AddScore(int amount)
     {
         score += amount;
+
+        if (score >= maxScore)
+        {
+            score = maxScore;
+            Debug.Log("Added score "+ amount + ". Reached max score!");
+        }
         Debug.Log("Added score "+ amount + ". Current: " + score);
         UpdateScoreUGUI();
     }
