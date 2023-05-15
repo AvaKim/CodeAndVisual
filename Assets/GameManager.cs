@@ -24,16 +24,17 @@ public class GameManager : MonoBehaviour
     
     public void OnClickGoToMenuScene()
     {
-        StartCoroutine(GoToMenuScene());
+        StartCoroutine(LoadScene(0));
     }
 
     
-    IEnumerator GoToMenuScene()
+    IEnumerator LoadScene(int sceneIndex)
     {
+        Debug.Log("Moving to scene " + sceneIndex + "...");
         preGamePauseLayer.enabled = true;
         screenFadeOut.Play("TransitionOut");
         yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(sceneIndex);
     }
 
     public void OnClickStartGame()
@@ -58,18 +59,31 @@ public class GameManager : MonoBehaviour
     }
     // Start is called before the first frame update
     void Start()
-    {
-        playerName = GlobalGameManager.Instance == null ? "undefined" : GlobalGameManager.Instance.playerNickname;
-        gameDifficulty = GlobalGameManager.Instance == null ? 1 : GlobalGameManager.Instance.gameDifficulty;
-        Time.timeScale = 0; // Pause game until player starts
-
-        if(Instance == null) 
-            Instance = this;
-        else
+    {   
+        if(Instance != null && Instance != this) 
         {
             Debug.LogWarning("Another GameManager instance detected");
             Destroy(this);
         }
+        else
+        {
+            Instance = this;
+        }
+        
+        playerName = GlobalGameManager.Instance == null ? "undefined" : GlobalGameManager.Instance.playerNickname;
+        gameDifficulty = GlobalGameManager.Instance == null ? 1 : GlobalGameManager.Instance.gameDifficulty;
+        contamination = GlobalGameManager.Instance == null ? 0f : GlobalGameManager.Instance.contamination;
+        score = GlobalGameManager.Instance == null ? 0 : GlobalGameManager.Instance.playerScore;
+
+        UpdatePlayerHUD();
+
+        Invoke(nameof(PauseGame), 0.3f); // Pause game until player starts. Give delay to set up game
+        
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
     }
 
     public void ContaminateByAmount(float amount)
@@ -83,11 +97,6 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
-    }
-
-    void OnDestroy()
-    {
-        
     }
 
 
@@ -109,9 +118,27 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void ReloadScene()
+    {
+        GlobalGameManager.Instance.playerScore = score;
+        GlobalGameManager.Instance.contamination = contamination;
+        
+        StartCoroutine(LoadScene(1));
+    }
+
+    void UpdatePlayerHUD()
+    {
+        UpdateScoreUGUI();
+        UpdateContaminationSliderUGUI();
+    }
     void UpdateScoreUGUI()
     {
         scoreTextUGUI.text = score + " / " + maxScore;
+    }
+
+    void UpdateContaminationSliderUGUI()
+    {
+        contaminationUISlider.value = contamination;
     }
     
 

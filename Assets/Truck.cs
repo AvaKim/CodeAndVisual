@@ -13,9 +13,12 @@ public class Truck : MonoBehaviour
     private bool pendingDecision = false;
     private BinItemsAllocator currentBin;
 
+    private RoadGenerator _roadGenerator;
+    
     void Start()
     {
         _gameFloor = FindObjectOfType<GameFloor>();
+        _roadGenerator = FindObjectOfType<RoadGenerator>();
     }
 
     void Update()
@@ -111,9 +114,19 @@ public class Truck : MonoBehaviour
     // return to normal speed, update variables
     void LeaveHouse()
     {
+        
         _gameFloor.moveSpeed /= moveSpeedSlowRate;
         currentBin = null;
-        Debug.Log("House passed: " + ++numHousePassed);
+        
+        _roadGenerator.waypointsQueue.Dequeue();
+        int remainingHouseCount = _roadGenerator.waypointsQueue.Count;
+        
+        Debug.Log("House passed: " + ++numHousePassed + ". Remaining: " + remainingHouseCount);
+        if (remainingHouseCount == 0)
+        {
+            Debug.Log("Last house passed. Reloading the scene...");
+            GameManager.Instance.ReloadScene();
+        }
         slowed = false;
         pendingDecision = false;
     }

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class RoadGenerator : MonoBehaviour
 {
     private GameFloor _gameFloor;
-    private const int houseGenInterval = 3;
+    private const int houseGenInterval = 9;
 
     private Camera mainCam;
     public GameObject housePrefab;
@@ -17,7 +17,7 @@ public class RoadGenerator : MonoBehaviour
     public GameObject roadPrefab;
     private Vector3[] houseSpawns = new Vector3[4]; // every road has 2 house spawn points on each side. 0, 1 = left / 2, 3 = right
 
-    private int maxWaypoints = 32;
+    private int maxWaypoints = 30;
 
     private int spawnedWaypoints = 0;
     private Vector3 lastSpawnedWaypointPos;
@@ -26,7 +26,7 @@ public class RoadGenerator : MonoBehaviour
     private bool initialDirectionSet = false;
 
     public Queue<Transform> rotatingPoints = new();
-    private Queue<Transform> waypointsQueue = new();
+    public Queue<Transform> waypointsQueue = new();
 
     void Start()
     {
@@ -71,8 +71,8 @@ public class RoadGenerator : MonoBehaviour
         waypointsQueue.Enqueue(waypoint);
         lastSpawnedWaypointPos = waypoint.position;
 
-        // spawn houses at waypoints interval
-        if(spawnedWaypoints % houseGenInterval == 0) SpawnHousePrefab(road);
+        // spawn houses at waypoints interval. 50% spawn on start
+        if(spawnedWaypoints == 0 && movingRight || spawnedWaypoints % houseGenInterval == 0) SpawnHousePrefab(road);
         
         
         // repeat
