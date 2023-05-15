@@ -145,6 +145,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numHousePassed: 0
   moveSpeedSlowRate: 0.5
+  slowed: 0
+  exclaimationMark: {fileID: 0}
 --- !u!54 &4317668755774565068
 Rigidbody:
   m_ObjectHideFlags: 0

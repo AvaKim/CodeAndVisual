@@ -1,7 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Truck : MonoBehaviour
 {
@@ -10,6 +8,7 @@ public class Truck : MonoBehaviour
     [SerializeField] private float moveSpeedSlowRate = 0.5f;
     public bool slowed = false;
 
+    [SerializeField] private Image exclaimationMark;
     private bool pendingDecision = false;
     private BinItemsAllocator currentBin;
 
@@ -76,6 +75,7 @@ public class Truck : MonoBehaviour
             _gameFloor.moveSpeed *= moveSpeedSlowRate;
             currentBin = col.GetComponentInChildren<BinItemsAllocator>();
             slowed = true;
+            exclaimationMark.enabled = true;
             pendingDecision = true;
         }
     }
@@ -117,6 +117,7 @@ public class Truck : MonoBehaviour
             _roadGenerator.housesQueue.Dequeue();
         }
         slowed = false;
+        exclaimationMark.enabled = false;
         pendingDecision = false;
     }
 }

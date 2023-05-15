@@ -3,25 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BinItem : MonoBehaviour
 {
     public string binItemType;
     public bool isMoving = false;
+    
 
     [SerializeField]
-    private GameObject onCollectionScoreTextUI;
-
+    private Transform scoreTextSpawnPos;
+    private Transform worldCanvas;
     private TextMeshProUGUI itemTextUI;
     private Animator fadeIn;
+    private Camera mainCam;
     private float speed = 1f;
 
     void Start()
     {
+        mainCam = Camera.main;
         fadeIn =
             GetComponent<Animator>();
 
-
+        worldCanvas = GameObject.FindGameObjectWithTag("WorldCanvas").transform;
+            
         itemTextUI = GetComponent<TextMeshProUGUI>();
     }
     
@@ -33,7 +38,7 @@ public class BinItem : MonoBehaviour
             
             transform.Translate(dir * speed * Time.unscaledDeltaTime);
 
-            if (Vector3.Distance(truck.position, transform.position) < 0.2f)
+            if (Vector3.Distance(truck.position, transform.position) < 0.15f)
             {
                 OnItemReachedTruck();
             }
@@ -44,29 +49,26 @@ public class BinItem : MonoBehaviour
     {
         isMoving = false;
         fadeIn.enabled = true;
-        var textColor = Color.green;
         if (binItemType.Equals("A") || binItemType.Equals("B") || binItemType.Equals("C"))
         {
             // successful collection
             Invoke(nameof(AddScore), 0.5f);
+            itemTextUI.color = Color.green;
         }
         else
         {
             // collected contaminated item. apply penalty
             Invoke(nameof(SubtractScore), 0.5f);
-            textColor = Color.red;
+            itemTextUI.color = Color.red;
+            mainCam.transform.GetComponent<CameraShake>().Shake();
         }
         
-        //Spawn score text
-        itemTextUI.color = textColor;
-        var textUI = Instantiate(onCollectionScoreTextUI, transform);
-        textUI.GetComponent<TextMeshProUGUI>().color = textColor; 
-        Destroy(this.gameObject, 0.5f);
+        Destroy(this.gameObject, 2f);
     }
 
     void AddScore()
     {
-        GameManager.Instance.AddScore(10);
+        GameManager.Instance.AddScore(10); 
     }
 
     void SubtractScore()

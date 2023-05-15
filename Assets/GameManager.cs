@@ -158,7 +158,7 @@ public class GameManager : MonoBehaviour
     {
         contaminationUISlider.value = contamination;
     }
-    
+
 
     public void GameOver()
     {
