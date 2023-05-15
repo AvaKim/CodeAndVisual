@@ -754,7 +754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakeDuration: 0.3
-  shakeMagnitude: 0.1
+  shakeMagnitude: 0.4
   scoreText: {fileID: 1391393671}
 --- !u!1 &1014676773
 GameObject:

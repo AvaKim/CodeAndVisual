@@ -25,7 +25,7 @@ public class CameraShake : MonoBehaviour
             transform.localRotation = Quaternion.Euler(x, y, z);
 
             // Decrement the timer
-            timer -= Time.deltaTime;
+            timer -= Time.unscaledDeltaTime;
         }
         else
         {
