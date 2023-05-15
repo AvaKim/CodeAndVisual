@@ -121,7 +121,7 @@ public class Truck : MonoBehaviour
         int remainingHouseCount = _roadGenerator.housesQueue.Count - 1;
         Debug.Log("House passed: " + ++numHousePassed + ". Remaining: " + remainingHouseCount);
 
-        if (numHousePassed == 30 || remainingHouseCount == 0)
+        if (numHousePassed == 30)
         {
             Debug.Log("Last house passed. Game over.");
             GameManager.Instance.GameOver();
