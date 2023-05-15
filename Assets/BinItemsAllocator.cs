@@ -25,6 +25,7 @@ public class BinItemsAllocator : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             binItemTexts[i].text = randomTexts[i];
+            binItemUIs[i].GetComponent<BinItem>().binItemType = randomTexts[i];
             binItems = randomTexts;
         }
     }
@@ -43,20 +44,7 @@ public class BinItemsAllocator : MonoBehaviour
             binItemUIs[i].SetParent(worldCanvas.transform);
             binItemUIs[i].GetComponent<BinItem>().MoveTo(truck);
 
-            yield return new WaitForSeconds(0.5f);
-            // when reached truck, add score or subtract
-            if (binItemTexts.Equals("A") || binItemTexts.Equals("B") || binItemTexts.Equals("C"))
-            {
-                // successful collection
-                GameManager.Instance.AddScore(10);
-            }
-            else
-            {
-                // collected contaminated item. apply penalty
-                GameManager.Instance.SubtractScore(5);
-                GameManager.Instance.ContaminateByAmount(0.1f);
-            }
-
+            yield return new WaitForSeconds(0.35f);
         }
     }
 }

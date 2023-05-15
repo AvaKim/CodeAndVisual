@@ -847,7 +847,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   housePrefab: {fileID: 2058783801850969757, guid: 205b5bebc7105fd4aa66e94d1964b2e7, type: 3}
-  binItemsPrefab: {fileID: 4771251680915977316, guid: 0a9dbf1ed914244469ade82b05b3b956, type: 3}
   roadPrefab: {fileID: 7142012201687451475, guid: 207dfb1aa9f7cf246a4308f458913299, type: 3}
 --- !u!4 &1030197241
 Transform:
@@ -2019,7 +2018,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 4
   m_TargetDisplay: 0
@@ -2041,7 +2040,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.10079999, y: 0.4613}
-  m_SizeDelta: {x: 1, y: 7}
+  m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2068866231
 GameObject:

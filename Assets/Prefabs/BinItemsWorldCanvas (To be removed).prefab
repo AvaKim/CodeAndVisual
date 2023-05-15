@@ -84,7 +84,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &5399179700020527457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,7 +272,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b94dba9fddc3a43b6d3e0be75faa25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  binItemType: 
   isMoving: 0
+  onCollectionScoreTextUI: {fileID: 5979880876920788711, guid: 53907b1736c7127449b1cf41c515797d, type: 3}
 --- !u!95 &1027867906772822755
 Animator:
   serializedVersion: 5
@@ -519,7 +521,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b94dba9fddc3a43b6d3e0be75faa25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  binItemType: 
   isMoving: 0
+  onCollectionScoreTextUI: {fileID: 5979880876920788711, guid: 53907b1736c7127449b1cf41c515797d, type: 3}
 --- !u!95 &671914018237125601
 Animator:
   serializedVersion: 5
@@ -690,7 +694,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b94dba9fddc3a43b6d3e0be75faa25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  binItemType: 
   isMoving: 0
+  onCollectionScoreTextUI: {fileID: 5979880876920788711, guid: 53907b1736c7127449b1cf41c515797d, type: 3}
 --- !u!95 &5454545755760950032
 Animator:
   serializedVersion: 5
