@@ -16,7 +16,7 @@ public class GlobalGameManager : MonoBehaviour
         if(Instance != null & Instance != this)
         {
             Debug.Log("Only one GlobalManager should exist at a time. Destroying this instance.");
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         else
         {
@@ -33,6 +33,7 @@ public class GlobalGameManager : MonoBehaviour
         gameDifficulty = 1;
         playerScore = 0;
         contamination = 0;
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame

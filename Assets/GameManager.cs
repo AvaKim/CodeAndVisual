@@ -33,23 +33,8 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Moving to scene " + sceneIndex + "...");
         preGamePauseLayer.enabled = true;
-        float preFadeoutDelayAmount = 0f;
-        switch (gameDifficulty)
-        {
-            case 0:
-                preFadeoutDelayAmount = 1.25f;
-                break;
-            case 1:
-                preFadeoutDelayAmount = 0.75f;
-                break;
-            case 2:
-                preFadeoutDelayAmount = 0.5f;
-                break;
-        }
-
-        yield return new WaitForSeconds(preFadeoutDelayAmount);
         screenFadeOut.Play("TransitionOut");
-        yield return new WaitForSeconds(1.5F); // fadeout animation length
+        yield return new WaitForSecondsRealtime(1.5F); // fadeout animation length
 
         if (GlobalGameManager.Instance == null)
         {
@@ -80,7 +65,7 @@ public class GameManager : MonoBehaviour
         {
             0 => 0.5f,
             1 => 1f,
-            2 => 1.5f,
+            2 => 2f,
             _ => Time.timeScale
         };
         preGamePauseLayer.enabled = false;
