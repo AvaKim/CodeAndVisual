@@ -42,21 +42,7 @@ public class Truck : MonoBehaviour
             return;
         }
 
-        foreach (var collectedItem in currentBin.binItems)
-        {
-            if (collectedItem.Equals("A") || collectedItem.Equals("B") || collectedItem.Equals("C"))
-            {
-                // successful collection
-                GameManager.Instance.AddScore(10);
-            }
-            else
-            {
-                // collected contaminated item. apply penalty
-                GameManager.Instance.SubtractScore(5);
-                GameManager.Instance.ContaminateByAmount(0.1f);
-            }
-        }
-        
+        currentBin.CollectBin();
         LeaveHouse();
     }
 

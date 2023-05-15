@@ -12,8 +12,6 @@ public class RoadGenerator : MonoBehaviour
 
     private Camera mainCam;
     public GameObject housePrefab;
-    [SerializeField] private GameObject binItemsPrefab; // to be spawned for each house
-    
     public GameObject roadPrefab;
     private Vector3[] houseSpawns = new Vector3[4]; // every road has 2 house spawn points on each side. 0, 1 = left / 2, 3 = right
 
