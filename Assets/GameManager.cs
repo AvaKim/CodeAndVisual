@@ -35,13 +35,13 @@ public class GameManager : MonoBehaviour
         switch (gameDifficulty)
         {
             case 0:
-                preFadeoutDelayAmount = 0f;
+                preFadeoutDelayAmount = 2f;
                 break;
             case 1:
-                preFadeoutDelayAmount = 0.5f;
+                preFadeoutDelayAmount = 1.5f;
                 break;
             case 2:
-                preFadeoutDelayAmount = 1f;
+                preFadeoutDelayAmount = 1.5f;
                 break;
         }
 
