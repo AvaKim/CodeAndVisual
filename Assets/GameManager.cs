@@ -35,13 +35,13 @@ public class GameManager : MonoBehaviour
         switch (gameDifficulty)
         {
             case 0:
-                preFadeoutDelayAmount = 2f;
+                preFadeoutDelayAmount = 1.25f;
                 break;
             case 1:
-                preFadeoutDelayAmount = 1.5f;
+                preFadeoutDelayAmount = 0.75f;
                 break;
             case 2:
-                preFadeoutDelayAmount = 1.5f;
+                preFadeoutDelayAmount = 0.5f;
                 break;
         }
 
@@ -169,9 +169,11 @@ public class GameManager : MonoBehaviour
     }
     
 
-    void GameOver()
+    public void GameOver()
     {
         Debug.Log("Gameover");
+        PauseGame();
+        resultsPanel.SetActive(true);
     }
     void Update()
     {

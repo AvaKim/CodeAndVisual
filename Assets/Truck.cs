@@ -124,7 +124,7 @@ public class Truck : MonoBehaviour
         if (numHousePassed == 30 || remainingHouseCount == 0)
         {
             Debug.Log("Last house passed. Reloading the scene...");
-            GameManager.Instance.ReloadScene();
+            GameManager.Instance.GameOver();
         }
         else
         {
