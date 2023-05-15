@@ -26,7 +26,14 @@ public class GlobalGameManager : MonoBehaviour
         
         
     }
-    
+
+    public void Reset()
+    {
+        playerNickname = "undefined";
+        gameDifficulty = 1;
+        playerScore = 0;
+        contamination = 0;
+    }
 
     // Update is called once per frame
     void Update()

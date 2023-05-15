@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public GameObject startGameButton;
     public Animator screenFadeOut;
 
+    public GameObject resultsPanel;
+
     public static GameManager Instance;
     
     public void OnClickGoToMenuScene()
@@ -59,6 +61,10 @@ public class GameManager : MonoBehaviour
             GlobalGameManager.Instance.contamination = contamination;   
         }
 
+        if (sceneIndex == 0)
+        {
+            GlobalGameManager.Instance.Reset();
+        }
         SceneManager.LoadScene(sceneIndex);
     }
 
