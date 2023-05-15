@@ -48,8 +48,17 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(preFadeoutDelayAmount);
         screenFadeOut.Play("TransitionOut");
         yield return new WaitForSeconds(1.5F); // fadeout animation length
-        GlobalGameManager.Instance.playerScore = score;
-        GlobalGameManager.Instance.contamination = contamination;
+
+        if (GlobalGameManager.Instance == null)
+        {
+            Debug.Log("No GlobalManager found. Reloading without saving data");
+        }
+        else
+        {
+            GlobalGameManager.Instance.playerScore = score;
+            GlobalGameManager.Instance.contamination = contamination;   
+        }
+
         SceneManager.LoadScene(sceneIndex);
     }
 
