@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
 
         if (contamination >= 1f)
         {
-            GameOver();
+            Invoke("GameOver", 1f);
         }
     }
 

@@ -19,9 +19,9 @@ public class ResultsPanel : MonoBehaviour
     {
         headerText.text = $"GAME OVER {GameManager.Instance.playerName}!";
         scoreText.text = $"{GameManager.Instance.score}";
-        contaminationPercentText.text = $"{GameManager.Instance.contamination * 100}";
+        contaminationPercentText.text = $"{(int)(GameManager.Instance.contamination * 100f)}";
 
         float contamMultiplier = 1f - GameManager.Instance.contamination;
-        finalScoreText.text = $"{GameManager.Instance.score * contamMultiplier}";
+        finalScoreText.text = $"{(int)(GameManager.Instance.score * contamMultiplier)}";
     }
 }
