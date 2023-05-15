@@ -118,14 +118,17 @@ public class Truck : MonoBehaviour
         _gameFloor.moveSpeed /= moveSpeedSlowRate;
         currentBin = null;
         
-        _roadGenerator.waypointsQueue.Dequeue();
-        int remainingHouseCount = _roadGenerator.waypointsQueue.Count;
-        
+        int remainingHouseCount = _roadGenerator.housesQueue.Count - 1;
         Debug.Log("House passed: " + ++numHousePassed + ". Remaining: " + remainingHouseCount);
-        if (remainingHouseCount == 0)
+
+        if (numHousePassed == 30 || remainingHouseCount == 0)
         {
             Debug.Log("Last house passed. Reloading the scene...");
             GameManager.Instance.ReloadScene();
+        }
+        else
+        {
+            _roadGenerator.housesQueue.Dequeue();
         }
         slowed = false;
         pendingDecision = false;

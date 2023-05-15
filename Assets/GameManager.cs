@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     public string playerName = "undefined";
 
     public Slider contaminationUISlider;
-    
     public Image preGamePauseLayer;
     public TextMeshProUGUI scoreTextUGUI;
     public GameObject startGameButton;
@@ -33,7 +32,20 @@ public class GameManager : MonoBehaviour
         Debug.Log("Moving to scene " + sceneIndex + "...");
         preGamePauseLayer.enabled = true;
         screenFadeOut.Play("TransitionOut");
-        yield return new WaitForSeconds(1.5f);
+        float delayAmount = 1.5f;
+        switch (gameDifficulty)
+        {
+            case 0:
+                delayAmount = 1.5f;
+                break;
+            case 1:
+                delayAmount = 2.5f;
+                break;
+            case 2:
+                delayAmount = 4f;
+                break;
+        }
+        yield return new WaitForSeconds(delayAmount);
         SceneManager.LoadScene(sceneIndex);
     }
 

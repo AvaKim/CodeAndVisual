@@ -1,23 +1,23 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Net;
 using Random = UnityEngine.Random;
 using UnityEngine.UI;
 
 public class RoadGenerator : MonoBehaviour
 {
     private GameFloor _gameFloor;
-    private const int houseGenInterval = 9;
+    private const int houseGenInterval = 3;
 
     private Camera mainCam;
     public GameObject housePrefab;
     [SerializeField] private GameObject binItemsPrefab; // to be spawned for each house
-    [SerializeField] private Canvas worldCanvas; // to spawn binItemUI
     
     public GameObject roadPrefab;
     private Vector3[] houseSpawns = new Vector3[4]; // every road has 2 house spawn points on each side. 0, 1 = left / 2, 3 = right
 
-    private int maxWaypoints = 30;
+    private int maxWaypoints = 8;
 
     private int spawnedWaypoints = 0;
     private Vector3 lastSpawnedWaypointPos;
@@ -26,7 +26,7 @@ public class RoadGenerator : MonoBehaviour
     private bool initialDirectionSet = false;
 
     public Queue<Transform> rotatingPoints = new();
-    public Queue<Transform> waypointsQueue = new();
+    public Queue<Transform> housesQueue = new();
 
     void Start()
     {
@@ -68,11 +68,10 @@ public class RoadGenerator : MonoBehaviour
         }
 
         // update variables
-        waypointsQueue.Enqueue(waypoint);
         lastSpawnedWaypointPos = waypoint.position;
 
-        // spawn houses at waypoints interval. 50% spawn on start
-        if(spawnedWaypoints == 0 && movingRight || spawnedWaypoints % houseGenInterval == 0) SpawnHousePrefab(road);
+        // spawn houses at waypoints interval.
+        SpawnHouse(road);
         
         
         // repeat
@@ -80,6 +79,25 @@ public class RoadGenerator : MonoBehaviour
         if (spawnedWaypoints < maxWaypoints)
         {
             GenerateWaypoint(movingRight, waypoint);
+        }
+    }
+
+    // spawn houses at waypoints interval.
+    void SpawnHouse(GameObject roadToSpawnHouseOn)
+    {
+        if (spawnedWaypoints % houseGenInterval == 0)
+        {
+            // 50% spawn on start
+            if (spawnedWaypoints == 0)
+            {
+                if (Random.Range(0f, 1f) > 0.5f)
+                {
+                    maxWaypoints += houseGenInterval; // extend road to make 30 houses
+                    return;
+                }
+            }
+            
+            SpawnHousePrefab(roadToSpawnHouseOn);
         }
     }
 
@@ -116,6 +134,7 @@ public class RoadGenerator : MonoBehaviour
             var binItemsAllocator = binItemsCanvas.GetComponent<BinItemsAllocator>();
 
             binItemsAllocator.SetBinItemTexts(GetRandomBinItems());
+            housesQueue.Enqueue(newHouse.transform);
         }
 
     }
