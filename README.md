@@ -1,4 +1,4 @@
-A mini WebGL game made in Unity as part of CodeAndVisual Challenge
+A simple  Bin Collection game built in Unity, for technical challenge at CodeAndVisual
 
 <h1># CodeAndVisual Mini Game Challenge</h1>
 
